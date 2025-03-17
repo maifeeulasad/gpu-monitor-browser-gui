@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  gpu-monitor:
+    image: denoland/deno:2.0.0
+    command: deno run -A /app/websersocket_0628a90e-0163-400d-bee6-e31e990e9197.js
+    ports:
+      - "8443:8443"
+    volumes:
+      - .:/app
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
